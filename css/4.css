@@ -63,3 +63,7 @@ main {
 .btn--restart{
   display: none;
 }
+
+.fader{
+  opacity: 0;
+}

@@ -54,20 +54,33 @@ function reveal(){
     return;
   }
 
-  console.log(comparateur[0].textContent);
-  console.log(comparateur[1].textContent);
+  //console.log(comparateur[0].textContent);
+  //console.log(comparateur[1].textContent);
 
-  if(comparateur[0].dataset.valor === comparateur[1].dataset.valor){
-     console.log("GG une paire de trouvée");
-  }
-  else{
-    console.log("pas ok")
-  }
-
+  comparer(comparateur);
 }
 
-document.querySelectorAll(".target"
 
-).forEach(function(element2){
+
+function comparer(targetAComparer){
+  if(targetAComparer[0].dataset.valor === targetAComparer[1].dataset.valor){
+    confirmation(targetAComparer);
+ }
+ else{
+   erreur();
+ }
+}
+
+function confirmation(latarget){
+  latarget.forEach(function(element){
+   element.classList.add("fader");
+  });
+}
+
+function erreur(){
+ console.log("erreur");
+}
+
+document.querySelectorAll(".target").forEach(function(element2){
   element2.addEventListener("click", reveal);
 });
