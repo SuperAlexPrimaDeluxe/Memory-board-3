@@ -34,11 +34,11 @@ function repartition() {
   });
 }
 
-repartition();
+
 
 function reveal(){
   let comparateur;
-  const totaldecouvert = document.querySelectorAll(".reveal");
+  const totaldecouvert = document.querySelectorAll(".reveal:not(.fader)");
 
 
 
@@ -49,7 +49,7 @@ function reveal(){
   // this.classList.getAttribute("comparateur");
 
   this.classList.add("reveal");
-  comparateur = document.querySelectorAll(".reveal");
+  comparateur = document.querySelectorAll(".reveal:not(.fader)");
   if(comparateur.length < 2){
     return;
   }
@@ -67,7 +67,7 @@ function comparer(targetAComparer){
     confirmation(targetAComparer);
  }
  else{
-   erreur();
+   erreur(targetAComparer);
  }
 }
 
@@ -77,9 +77,13 @@ function confirmation(latarget){
   });
 }
 
-function erreur(){
- console.log("erreur");
+function erreur(latarget){
+  latarget.forEach(function(element){
+    element.classList.remove("reveal");
+  });
 }
+
+repartition();
 
 document.querySelectorAll(".target").forEach(function(element2){
   element2.addEventListener("click", reveal);
