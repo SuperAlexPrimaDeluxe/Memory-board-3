@@ -16,7 +16,7 @@ main {
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
-  max-width: 50rem;
+  max-width: 30rem;
   margin: auto;
 }
 
