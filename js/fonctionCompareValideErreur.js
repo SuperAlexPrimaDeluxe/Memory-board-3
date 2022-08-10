@@ -17,6 +17,14 @@ function confirmation(latarget){
 
 function erreur(latarget){
   latarget.forEach(function(element){
-    element.classList.remove("reveal");
+    element.classList.add("error");
   });
+
+  setTimeout(
+    function(){
+      latarget.forEach(function(element){
+        element.classList.remove("reveal");
+        element.classList.remove("error");
+      });
+    }, 1000);
 }
